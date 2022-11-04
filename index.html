@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .qst
+        {
+            color: blue;
+        }
+        .ans
+        {
+            color:rgb(149, 4, 4);
+        }
+    </style>
+</head>
+<body>
+    <h1>Problem Solving</h1>
+    <b class="qst">Q1.</b>
+    <b class="ans">Find the Smaller Angle
+        PrepBuddy has an analog clock which consists of two hands one for hour and another for minute. She wants to 
+        calculate the shorter angle formed between hour and minute hand at any given time
+    </b> <br> <br>
+    <b class="qst">A1.</b> function min(x, y) <br>
+    { <br>
+        return (x < y)? x: y; <br>
+    } <br>
+    var Minimal_Angle = (h, m) => <br>
+    { <br>
+        if (h <0 || m < 0 || h >12 || m > 60) <br>
+            console.log("Wrong input"); <br>     
+        if (h === 12) <br>
+        h = 0; <br>
+        if (m === 60) <br>
+        { <br>
+        m = 0; <br>
+        h += 1; <br>
+        if(h>12) <br>
+            h = h-12; <br>
+        } <br>
+        let hour_angle = 0.5 * (h * 60 + m); <br>
+        let minute_angle = 6 * m; <br>
+        let angle = Math.abs(hour_angle - minute_angle); <br>
+        angle = min(360 - angle, angle); <br>
+          return angle;     <br>
+    }; <br><br>
+
+    <b class="qst">Q2.</b>
+    <b class="ans">Check whether the year is Leap year or not.
+        Write a program which takes an year N as input from the user and find out whether the given year is a Leap 
+        Year or not.
+    </b> <br><br>
+    <b class="qst">A2.</b> var Check_Leap = (year) => <br>
+    { <br>
+      if (( year % 4===0) && ( year % 100!==0) || ( year % 400===0)) <br>
+       { <br>
+            return   "Leap Year"; <br>
+        } <br> 
+        else <br>
+        { <br>
+           return   "Non Leap Year"; <br>
+        } <br>
+    };   <br><br>
+     
+    <b class="qst">Q3.</b>
+    <b class="ans">Perfect Number Check.
+        Have you heard of Perfect numbers? If not let me tell you what is it, Perfect Numbers are integers that are
+        equal to the sum of all its divisors except that number itself.Now, You are given an integer N, write a 
+        program to check whether the given number is a Perfect Number or not.
+    </b> <br><br>
+    <b class="qst">A3.</b> var Perfect_Check = (N) => <br>
+    { <br>
+         sum = 1; <br> 
+        for (let i=2; i*i<=N; i++) <br>   
+        { <br>
+            if (N%i===0) <br>
+            { <br>
+                if(i*i!=N) <br>
+                    sum = sum + i + N/i; <br>
+                else <br>
+                    sum=sum+i; <br>
+            } <br>
+        } <br>       
+        if (sum === N && N !== 1) <br>
+        { <br>
+            return "NO"; <br>
+        } <br>
+        else <br>
+        { <br>
+        return "YES"; <br>   
+        }    <br>
+    }; <br><br>
+
+    <b class="qst">Q4.</b>
+    <b class="ans"> Reverse a Number.
+        Write a program which takes a numebr N as input from the user and You need to reverse the number.
+    </b> <br><br>
+    <b class="qst">A4.</b> var Reverse_Number = (N) =>  <br>
+    { <br>      
+      const result =  parseFloat(N.toString().split('').reverse().join('')) * Math.sign(N) <br>
+        return result; <br>
+    };     <br><br>
+
+    <b class="qst">Q5.</b>
+    <b class="ans">Substring Check.
+        You are given two strings S1 and S2, you need to check whether the string S1 is a substring of string S2 or 
+        not.
+    </b> <br><br>
+    <b class="qst">A5.</b> var Substring_Check = (S1, S2) =>  <br>
+    { <br>
+     const result=S1.includes(S2); <br>
+      if(result===true) <br>
+      { <br>
+        return "YES"; <br>
+      } <br>
+      else <br>
+      { <br>
+        return "NO"; <br>
+      }     <br>
+    }; 
+</body>
+</html>
